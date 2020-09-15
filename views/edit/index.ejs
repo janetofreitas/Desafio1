@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+
+        <style>
+            body {
+              background-color: whitesmoke;
+            }
+          
+            </style>
+            
+        <meta charset="UTF-8">
+        <title>CRUD livros</title>
+    </head>
+
+    <body>
+        <h2 class="text-center text-warning">Editar</h2>
+        <% data.forEach( function(details){ %>
+            <form action = "/edit/<%= details._id  %>" method="POST">
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Nome:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Nome%>" class="form-control" name="Nome">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Genero:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Genero%>" class="form-control" name="Genero">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Editora:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Editora%>" class = "form-control"  name="Editora">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Ano de publicação:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Ano%>" class="form-control" name="Ano">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Numero de paginas:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Nmr_pag%>" class="form-control" name="Nmr_pag">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Autor:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Autor%>" class="form-control" name="Autor">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Preço:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Preco%>" class="form-control" name="Preco">
+                  </div>
+    
+                  <div class="form-group">
+                    <label for="exampleFormControlInput1"><h5>Idioma:</h5></label>
+                    
+                    <input type = "text" value="<%= details.Idioma%>" class="form-control" name="Idioma">
+                  </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Salvar</button>
+                <button class="btn btn-primary btn-lg btn-block .btn btn-warning"><a href="/show/">Voltar</a></button>
+            </form>
+            <% }) %>
+    </body>
+    </html>
