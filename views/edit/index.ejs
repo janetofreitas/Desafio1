@@ -10,7 +10,7 @@
             }
           
             </style>
-            
+        
         <meta charset="UTF-8">
         <title>CRUD livros</title>
     </head>
@@ -29,7 +29,58 @@
                   <div class="form-group">
                     <label for="exampleFormControlInput1"><h5>Genero:</h5></label>
                     
-                    <input type = "text" value="<%= details.Genero%>" class="form-control" name="Genero">
+                    <select name="Genero">
+                      
+                      
+                      <% if(details.Genero.match('Terror'))  { %>
+                        <option value ="Terror" selected>Terror</option>
+                        <% }else  { %>
+                          <option value ="Terror" >Terror</option>
+                            <% } %>
+                            
+                      <% if(details.Genero.match('Comedia'))  { %>
+                        <option value ="Comedia" selected>Comedia</option>
+                        <% }else  { %>
+                          <option value ="Comedia" >Comedia</option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Acao'))  { %>
+                        <option value ="Acao" selected>Ação</option>
+                        <% }else  { %>
+                          <option value ="acao" >Ação</option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Fantasia'))  { %>
+                        <option value ="Fantasia" selected>Fantasia</option>
+                        <% }else  { %>
+                          <option value ="Fantasia" >Fantasia</option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Romance'))  { %>
+                        <option value ="Romance" selected>Romance</option>
+                        <% }else  { %>
+                          <option value ="Romance" >Romance</option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Auto-ajuda'))  { %>
+                        <option value ="Auto-ajuda" selected>Auto-ajuda</option>
+                        <% }else  { %>
+                          <option value ="Auto-ajuda" >Auto-ajuda</option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Infantil'))  { %>
+                        <option value ="Infantil" selected>Infantil</option>
+                        <% }else  { %>
+                          <option value ="Infantil" >Infantil/option>
+                            <% } %>
+
+                        <% if(details.Genero.match('Educacional'))  { %>
+                        <option value ="Educacional" selected>Educacional</option>
+                        <% }else  { %>
+                          <option value ="Educacional" >Educacional</option>
+                            <% } %>
+                        </select> 
+
                   </div>
     
                   <div class="form-group">
@@ -41,7 +92,7 @@
                   <div class="form-group">
                     <label for="exampleFormControlInput1"><h5>Ano de publicação:</h5></label>
                     
-                    <input type = "text" value="<%= details.Ano%>" class="form-control" name="Ano">
+                    <input type = "text" value="<%= details.Ano%>" class="form-control" name="Ano" maxlength="4">
                   </div>
     
                   <div class="form-group">
@@ -64,8 +115,15 @@
     
                   <div class="form-group">
                     <label for="exampleFormControlInput1"><h5>Idioma:</h5></label>
-                    
-                    <input type = "text" value="<%= details.Idioma%>" class="form-control" name="Idioma">
+                    <br>
+
+                    <input type="radio" id="male" name="Idioma" value="Português" required="required" checked>
+                    <label for="portugues">Português</label><br>
+                    <input type="radio" id="female" name="Idioma" value="Inglês">
+                    <label for="ingles">Inglês</label><br>
+                    <input type="radio" id="other" name="Idioma" value="Espanhol">
+                    <label for="espanhol">Espanhol</label>
+
                   </div>
 
                 <button type="submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Salvar</button>

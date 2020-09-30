@@ -1,0 +1,182 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+   <style>
+      body {
+        background-color: whitesmoke;
+      }
+   </style>
+
+   <meta charset="UTF-8">
+   <title>Editar Filme/Série</title>
+</head>
+
+<body>
+   <h2 class="text-center text-warning">Editar Filme/Série</h2>
+   <button><a href="/showF/">Voltar</a></button>
+   <% data.forEach(function(details) { %>
+      <form action="/editF/<%= details._id %>" method="POST">
+         <div class="form-group">
+            <table>
+                <tr>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Título:</h5></label>
+            
+                        <input type="text" value="<%= details.Titulo %>" name="Titulo">
+                    </td>
+                    <td>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Gênero:</h5></label> 
+                        <br>
+                        <table>
+                            <tr>
+                                <% if(details.Genero.includes('Acao') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Acao checked>Ação</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Acao>Ação</td>
+                                <% } %>
+                                                                    
+                                <% if(details.Genero.includes('Animacao') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Animacao checked>Animação</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Animacao>Animação</td>
+                                <% } %>
+                                    
+                                <% if(details.Genero.includes('Aventura') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Aventura checked>Aventura</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Aventura>Aventura</td>
+                                <% } %>
+                                
+                                <% if(details.Genero.includes('Comedia') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Comedia checked>Comédia</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Comedia>Comédia</td>
+                                <% } %>
+                                
+                            </tr>
+                            <tr>
+                                <% if(details.Genero.includes('Documentario') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Documentario checked>Documentário</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Documentario>Documentário</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('Fantasia') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Fantasia checked>Fantasia</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Fantasia>Fantasia</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('FiccaoCientifica') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=FiccaoCientifica checked>Ficção Científica</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=FiccaoCientifica>Ficção Científica</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('Guerra') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Guerra checked>Guerra</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Guerra>Guerra</td>
+                                <% } %>
+                                
+                            </tr>
+                            <tr>
+                                <% if(details.Genero.includes('Musical') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Musical checked>Musical</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Musical>Musical</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('Romance') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Romance checked>Romance</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Romance>Romance</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('Suspense') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Suspense checked>Suspense</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Suspense>Suspense</td>
+                                <% } %>
+                                                                
+                                <% if(details.Genero.includes('Terror') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Terror checked>Terror</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Terror>Terror</td>
+                                <% } %>
+                                
+                            </tr>
+                            <tr>
+                                <% if(details.Genero.includes('Horror') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Horror checked>Horror</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Horror>Horror</td>
+                                <% } %>                                
+                                                                
+                                <% if(details.Genero.includes('Drama') ){ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Drama checked>Drama</td>
+                                <% } else{ %>
+                                    <td><INPUT TYPE=CHECKBOX NAME=Genero VALUE=Drama>Drama</td>
+                                <% } %>
+                                
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+        
+        <div class="form-group">
+            <table>
+                <tr>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Ano:</h5></label>
+                
+                        <input type="text" value="<%= details.Ano %>" name="Ano">
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Elenco:</h5></label>
+                
+                        <input type="text" value="<%= details.Elenco %>" name="Elenco">
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Diretor:</h5></label>
+                
+                        <input type="text" value="<%= details.Diretor %>" name="Diretor">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Sinopse:</h5></label>
+                
+                        <input type="text" value="<%= details.Sinopse %>" name="Sinopse">
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Duração:</h5></label>
+                
+                        <input type="text" value="<%= details.Duracao %>" name="Duracao">
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h5>Valor:</h5></label>
+                
+                        <input type="text" value="<%= details.Valor %>" name="Valor">
+                    </td>
+                </tr>
+            </table>
+                               
+        </div>
+         
+        <button type="submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Salvar</button> 
+      </form>
+        
+   <% }) %>
+</body>
+
+</html>

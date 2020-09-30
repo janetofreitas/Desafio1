@@ -28,7 +28,19 @@
               <div class="form-group">
                 <label for="exampleFormControlInput1"><h5>Genero:</h5></label>
                 
-                <input type = "text" class="form-control" name="Genero">
+                
+
+                <select name="Genero">
+                    <option value ="Terror">Terror</option>
+                    <option value ="Comedia">Comedia</option>
+                    <option value ="Ação">Ação</option>
+                    <option value ="Fantasia">Fantasia</option>
+                    <option value ="Romance">Romance</option>
+                    <option value ="Auto-ajuda">Auto-ajuda</option>
+                    <option value ="Infantil">Infantil</option>
+                    <option value ="Educacional">Educacional</option>
+                    </select> 
+                    
               </div>
 
               <div class="form-group">
@@ -40,7 +52,7 @@
               <div class="form-group">
                 <label for="exampleFormControlInput1"><h5>Ano de publicação:</h5></label>
                 
-                <input type = "text" class="form-control" name="Ano">
+                <input type = "text" class="form-control" name="Ano" maxlength="4">
               </div>
 
               <div class="form-group">
@@ -63,10 +75,16 @@
 
               <div class="form-group">
                 <label for="exampleFormControlInput1"><h5>Idioma:</h5></label>
-                
-                <input type = "text" class="form-control" name="Idioma">
+                    <br>
+
+                    <input type="radio" id="male" name="Idioma" value="Português" required="required">
+                    <label for="portugues"><b>Português</b></label><br>
+                    <input type="radio" id="female" name="Idioma" value="Inglês">
+                    <label for="ingles"><b>Inglês</b></label><br>
+                    <input type="radio" id="other" name="Idioma" value="Espanhol">
+                    <label for="espanhol"><b>Espanhol</b></label>
               </div>
            
-            <button type = "subbimit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Cadastrar</button>
+            <button type = "submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Cadastrar</button>
         </form>
     </body>

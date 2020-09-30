@@ -22,10 +22,15 @@ app.use(bodyparser.urlencoded({extended: true}))
 
 app.set('view engine', 'ejs')
 
-
+   
 app.get('/', function(req, res){
+    res.render('menu')
+})
+
+app.get('/home', function(req, res){
     res.render('home')
 })
+
 
 app.get('/show', (req, res) =>{
     db.collection('generico').find().toArray(
@@ -101,5 +106,89 @@ app.route('/delete/:id')
                 console.log('Valor removido com sucesso!')
                 res.redirect('/show')
              })
+})
+
+app.get('/homeF/', function(req, res){
+    res.render('homeF')
+})
+
+app.get('/showF/', function(req, res){
+    db.collection('FilmesSeries').find().toArray(
+        (err, results) => {
+            if(err) return console.log(err)
+            console.log(results)
+            res.render('showF', {data: results})
+        }
+    )
+})
+
+app.post('/showF/', function(req, res){
+    db.collection('FilmesSeries').save(req.body, (err, resut) => {
+        if(err) return console.log(err)
+        
+        console.log('Salvo no MongoDB')
+        res.redirect('/showF')
+    })
+
+})
+
+app.route('/editF/:id')
+.get((req, res) =>{
+    var id = req.params.id
+    db.collection('FilmesSeries').find(ObjectID(id)).toArray((err, result)=>{
+        if(err) return console.log(err)
+
+        res.render('editF', {data: result})
+
+    })
+})
+.post((req, res) => {
+    var id = req.params.id
+    var Titulo = req.body.Titulo
+    var Genero = req.body.Genero
+    var Ano = req.body.Ano
+    var Elenco = req.body.Elenco
+    var Diretor = req.body.Diretor
+    var Sinopse = req.body.Sinopse
+    var Duracao = req.body.Duracao
+    var Valor = req.body.Valor
+    db.collection('FilmesSeries').updateOne(
+        {
+            _id: ObjectID(id)
+        },
+        {
+            $set: {
+                Titulo: Titulo,
+                Genero: Genero,
+                Ano: Ano,
+                Elenco: Elenco,
+                Diretor: Diretor,
+                Sinopse: Sinopse,
+                Duracao: Duracao,
+                Valor: Valor
+            }
+        }, (err, result)=>{
+            if(err) return console.log(err)
+            console.log('Banco atualizado com Sucesso !')
+            res.redirect('/showF')
+        }
+    )
+})
+
+app.route('/deleteF/:id')
+.get((req, res) => {
+    var id = req.params.id
+    db.collection('FilmesSeries').deleteOne(
+        {
+            _id: ObjectID(id)
+        },
+        (err, result) => {
+            if(err) return console.log(err)
+            console.log('Valor removido com sucesso !')
+            res.redirect('/showF')
+        }
+      
+    )
+    
 })
 

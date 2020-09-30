@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <style>
+        body {
+          background-color: whitesmoke;
+        }
+    </style>
+    
+    <meta charset="UTF-8">
+    <title>Catálogo de Filmes e Séries</title>
+</head>
+
+<body>
+    <h2 class="text-center text-warning">Catálogo de Filmes e Séries</h2>
+    <button><a href="/homeF/">Cadastrar</a></button>
+    <br>
+    <br>
+    <div class="form-group">
+        <table border='1' class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Título:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Gênero:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Ano:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Elenco:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Diretor:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Sinopse:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Duração:</h7></label>                        
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Valor:</h7></label>                           
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach( function(details){ %>
+                    <tr>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Titulo%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Genero%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Ano%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Elenco%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Diretor%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Sinopse%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Duracao%></h7></label></td>
+                        <td><label for="exampleFormControlInput1"><h7><%= details.Valor%></h7></label></td>
+                        <td><a href="/editF/<%= details._id %>">Editar</a></td>
+                        <td><a href="/deleteF/<%= details._id %>">Excluir</a></td>
+                    </tr>
+    
+                <% })%>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+    
+
+</html>
