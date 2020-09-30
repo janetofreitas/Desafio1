@@ -27,6 +27,8 @@ app.get('/', function(req, res){
     res.render('menu')
 })
 
+// -------------------- Departamento de Livro --------------------------------
+
 app.get('/home', function(req, res){
     res.render('home')
 })
@@ -107,6 +109,10 @@ app.route('/delete/:id')
                 res.redirect('/show')
              })
 })
+
+// -------------------- FIM ------------------------------
+
+// -------------------- Departamento de Filmes/Series --------------------------------
 
 app.get('/homeF/', function(req, res){
     res.render('homeF')
