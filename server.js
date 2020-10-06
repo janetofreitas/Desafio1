@@ -22,10 +22,15 @@ app.use(bodyparser.urlencoded({extended: true}))
 
 app.set('view engine', 'ejs')
 
-
+   
 app.get('/', function(req, res){
+    res.render('menu')
+})
+
+app.get('/home', function(req, res){
     res.render('home')
 })
+
 
 app.get('/show', (req, res) =>{
     db.collection('generico').find().toArray(
@@ -102,4 +107,3 @@ app.route('/delete/:id')
                 res.redirect('/show')
              })
 })
-
