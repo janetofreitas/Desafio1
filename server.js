@@ -334,7 +334,7 @@ app.route('/editE/:id')
 
     db.collection('eletronicos').updateOne(
         {
-            _id: ObjectId(id)
+            _id: ObjectID(id)
         },
         {
             $set: {
@@ -361,7 +361,7 @@ app.route('/delete/:id')
     var id= req.params.id
     db.collection('eletronicos').deleteOne(
         {
-            _id: ObjectId(id)
+            _id: ObjectID(id)
         }, (err, result)=>{
             if(err) return console.log(err)
 
