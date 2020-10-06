@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+ integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meu primeiro CRUD Node.js</title>
+    </head>
+    <body>
+        <h2>Cadastrar Eletrônicos</h2>
+        <form action="/showE" method="POST">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="marca" placeholder="Marca">
+            <input type="text" name="valor" placeholder="Valor">
+            <div class="form-group">
+                <label for="exampleFormControlInput1"><h5>Cor:</h5></label>
+                
+                <select name="cor">
+                    <option value ="Preto">Preto</option>
+                    <option value ="Vermelho">Vermelho</option>
+                    <option value ="Azul">Azul</option>
+                    </select> 
+                    
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1"><h5>Voltagem:</h5></label>
+                
+                <select name="voltagem">
+                    <option value ="110v">110v</option>
+                    <option value ="220v">220v</option>
+                    </select> 
+                    
+              </div>
+            <input type="text" name="descricao" placeholder="Descrição">
+            <input type="text" name="garantia" placeholder="Garantia">
+            <input type="text" name="modelo" placeholder="Modelo">
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </body>
+</html>
