@@ -285,9 +285,92 @@ app.route('/deleteF/:id')
     })
 })
 
+// -------------------- Departamento de Eletrônicos --------------------------------
 
+app.get('/homeE', function(req, res){
+    res.render('homeE')
+})
 
+app.get('/showE/', function(req, res){
+    db.collection('eletronicos').find().toArray(
+        (err, results) => {
+            if(err) return console.log(err)
 
+            console.log(results)
+            res.render('showE', {data: results})
+        }
+    )
+})
+
+app.post('/showE/', function(req, res){
+    db.collection('eletronicos').save(req.body, (err, result) => {
+        if(err) return console.log(err)
+
+            console.log('Salvo no MongoDB')
+            res.redirect('/showE')
+    })
+})
+
+app.route('/editE/:id')
+.get((req, res) =>{
+    var id = req.params.id
+    db.collection('eletronicos').find(ObjectId(id)).toArray(
+        (err, result)=>{
+            if(err) return console.log(err)
+
+            res.render('editE', {data: result})
+        })
+})
+.post((req, res) => {
+    var id = req.params.id
+    var nome = req.body.nome
+    var marca = req.body.marca
+    var valor = req.body.valor
+    var cor = req.body.cor
+    var voltagem = req.body.voltagem
+    var descricao = req.body.descricao
+    var garantia = req.body.garantia
+    var modelo = req.body.modelo
+
+    db.collection('eletronicos').updateOne(
+        {
+            _id: ObjectId(id)
+        },
+        {
+            $set: {
+                nome: nome,
+                marca: marca,
+                valor: valor,
+                cor: cor,
+                voltagem: voltagem,
+                descricao: descricao,
+                garantia: garantia,
+                modelo: modelo
+            }
+        }, (err, result)=>{
+            if(err) return console.log(err)
+
+            console.log('Banco atualizado com sucesso!')
+            res.redirect('/showE')
+        }
+    )
+})
+
+app.route('/delete/:id')
+.get((req, res)=> {
+    var id= req.params.id
+    db.collection('eletronicos').deleteOne(
+        {
+            _id: ObjectId(id)
+        }, (err, result)=>{
+            if(err) return console.log(err)
+
+            console.log('Valor removido com sucesso!')
+            res.redirect('/showE')
+        }
+        
+    )
+})
 
 
 
