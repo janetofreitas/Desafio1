@@ -195,6 +195,99 @@ app.route('/deleteF/:id')
         }
       
     )
-    
 })
+    // -------------------- Departamento de Roupas --------------------------------
+
+    app.get('/homeR' , function(req, res){
+        res.render('homeR')
+  
+  })
+  app.get('/showR',(req, res) => {
+      db.collection('roupas').find().toArray(
+          (err, results) => {
+              if(err)
+          return console.log(err)
+          console.log(results)
+          res.render('showR', {data: results} )
+  
+          })
+  
+      
+  
+  }) 
+  
+  
+  app.post('/showR' ,function(req, res)  {
+      db.collection('roupas').save(req.body, (err, result) => {
+          if(err)
+          return console.log(err)
+          console.log('Salvo no MongoDB')
+          res.redirect('/showR')
+      })
+  });
+  
+  app.route('/editR/:id')
+  .get((req, res)=> {
+      var id = req.params.id
+      db.collection('roupas').find(ObjectID(id)).toArray(
+          (err, result)=> {
+              if (err) return console.log(err)
+              res.render('editR' , {data: result})
+  
+          })    
+  })
+  .post((req, res) => {
+      var id = req.params.id
+      var tamanho = req.body.tamanho
+      var tecido = req.body.tecido
+      var tipo = req.body.tipo
+      var Cor = req.body.Cor
+      var valor = req.body.valor
+      var  marca = req.body. marca
+      var coleção = req.body.coleção
+      var descrição = req.body.descrição
+      db.collection('roupas').updateOne(
+          {
+              _id: ObjectID(id)
+  
+          },
+          {
+              $set: {
+                  tamanho: tamanho,
+                  tecido: tecido,
+                  tipo: tipo,
+                  Cor: Cor,
+                  valor: valor,
+                  marca: marca,
+                  coleção: coleção,
+                  descrição: descrição
+              }
+          }, (err, result)=> {
+              if (err) return console.log(err)
+              res.redirect('/showR')
+              console.log('Banco Atualizado Com Sucesso')
+          }
+  
+      )
+  
+  
+  
+  })
+  
+  app.route('/deleteR/:id')
+  .get((req, res) => {
+    var id = req.params.id
+  
+    db.collection('roupas').deleteOne({_id: ObjectID(id)}, (err, result) => {
+      if (err) return res.send(500, err)
+      console.log('Deletado do Banco de Dados!')
+      res.redirect('/showR')
+    })
+})
+
+
+
+
+
+
 
