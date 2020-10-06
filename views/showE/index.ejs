@@ -1,33 +1,74 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <!DOCTYPE html>
 <html lang="pt">
     <head>
+        <style>
+            body {
+              background-color: rgb(4, 4, 49);
+            }
+        </style>
+
         <meta charset="UTF-8">
         <title>Meu primeiro CRUD Node.js</title>
     </head>
     <body>
-        <h2>Listagem</h2>
-        <table border='1'>
+        <h2 class="text-center text-warning">Lista de Eletrônicos</h2>
+        <table>
+            <tr>
+                <td>
+                    <button class="btn btn-primary btn-lg btn-block .btn btn-warning"><a href="/">Menu</a></button>
+                </td>
+                <td>
+                    <button class="btn btn-primary btn-lg btn-block .btn btn-warning"><a href="/homeE">Cadastrar Produto Eletrônico</a></button>
+                </td>
+            </tr>
+        </table>
+        <table border='1' class="table table-bordered table-dark">
             <thead>
                 <tr>
                     <td>
-                        Nome
+                        <label for="exampleFormControlInput1"><h7>Nome</h7></label>
                     </td>
                     <td>
-                        Sobrenome
+                        <label for="exampleFormControlInput1"><h7>Marca</h7></label>
                     </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Valor (R$)</h7></label>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Cor</h7></label>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Voltagem (V)</h7></label>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Descrição</h7></label>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Garantia</h7></label>
+                    </td>
+                    <td>
+                        <label for="exampleFormControlInput1"><h7>Modelo</h7></label>
+                    </td>
+                
                 </tr>
             </thead>
             <tbody>
                 <%  data.forEach( function(details){ %>
                     <tr>
                         <td><%= details.nome%></td>
-                        <td><%= details.sobrenome%></td>
+                        <td><%= details.marca%></td>
+                        <td><%= details.valor%></td>
+                        <td><%= details.cor%></td>
+                        <td><%= details.voltagem%></td>
+                        <td><%= details.descricao%></td>
+                        <td><%= details.garantia%></td>
+                        <td><%= details.modelo%></td>
                         <td><a href="/editE/<%= details._id %>">Editar</a></td>
                         <td><a href="/delete/<%= details._id %>">Excluir</a></td>
                     </tr>
                 <%  })%>    
             </tbody>
-            <button><a href="index.ejs">Voltar</a></button>
         </table>
 
     </body>

@@ -3,15 +3,25 @@
 <!DOCTYPE html>
 <html lang="pt">
     <head>
+        <style>
+            body {
+              background-color: whitesmoke;
+            }
+          
+        </style>
+        
         <meta charset="UTF-8">
-        <title>Meu primeiro CRUD Node.js</title>
+        <title>Cadastro de Produtos Eletrônicos</title>
     </head>
     <body>
-        <h2>Cadastrar Eletrônicos</h2>
+        <h2 class="text-center text-warning">Cadastrar Produtos Eletrônicos</h2>
+        <button class="btn btn-light"><a href="/showF/">Listagem</a></button>
+        <br>
+        <br>
         <form action="/showE" method="POST">
             <input type="text" name="nome" placeholder="Nome">
             <input type="text" name="marca" placeholder="Marca">
-            <input type="text" name="valor" placeholder="Valor">
+            <input type="number" name="valor" placeholder="Valor">
             <div class="form-group">
                 <label for="exampleFormControlInput1"><h5>Cor:</h5></label>
                 
@@ -34,7 +44,7 @@
             <input type="text" name="descricao" placeholder="Descrição">
             <input type="text" name="garantia" placeholder="Garantia">
             <input type="text" name="modelo" placeholder="Modelo">
-            <button type="submit">Cadastrar Produto</button>
+            <button type="submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Cadastrar Produto</button>
         </form>
     </body>
 </html>
