@@ -5,7 +5,10 @@
     <head>
         <style>
             body {
-              background-color: whitesmoke;
+              background-color: rgb(255, 255, 255);
+            }
+            a{
+                color: aliceblue;
             }
          </style>
          
@@ -14,16 +17,19 @@
     </head>
     <body>
         <h2 class="text-center text-warning">Editar</h2>
+        <br>
+        <br>
+        <div class="container">
         <% data.forEach (function(details){ %>
             <form action="/editE/<%= details._id %>" method="POST">
 
-                <label for="exampleFormControlInput1"><h7>Nome:</h7></label>
+                <label for="exampleFormControlInput1"><h5>Nome:</h5></label>
                 <input type="text" value="<%= details.nome %>" name="nome">
 
-                <label for="exampleFormControlInput1"><h7>Marca:</h7></label>
+                <label for="exampleFormControlInput1"><h5>Marca:</h5></label>
                 <input type="text" value="<%= details.marca %>" name="marca">
-
-                <label for="exampleFormControlInput1"><h7>Valor:</h7></label>
+                
+                <label for="exampleFormControlInput1"><h5>Valor:</h5></label>
                 <input type="number" value="<%= details.valor %>" name="valor">
                 <div class="form-group">
                     <label for="exampleFormControlInput1"><h5>Cor:</h5></label>
@@ -68,18 +74,19 @@
                     </select>                                
                 </div>
 
-                <label for="exampleFormControlInput1"><h7>Descrição:</h7></label>
+                <label for="exampleFormControlInput1"><h5>Descrição:</h5></label>
                 <input type="text" value="<%= details.descricao %>" name="descricao">
 
-                <label for="exampleFormControlInput1"><h7>Garantia:</h7></label>
+                <label for="exampleFormControlInput1"><h5>Garantia:</h5></label>
                 <input type="text" value="<%= details.garantia %>" name="garantia">
 
-                <label for="exampleFormControlInput1"><h7>Modelo:</h7></label>
+                <label for="exampleFormControlInput1"><h5>Modelo:</h5></label>
                 <input type="text" value="<%= details.modelo %>" name="modelo">
-
-                <button><a href="/showE/">Voltar</a></button>
-                <button type="submit">Salvar Edições</button>
+                <br>
+                <button class="btn btn-primary btn-lg btn-block"><a href="/showE/">Voltar</a></button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar Edições</button>
             </form>
         <% })%>
+    </div>
     </body>
     </html>
