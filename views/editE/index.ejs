@@ -15,10 +15,10 @@
     <body>
         <h2 class="text-center text-warning">Editar</h2>
         <% data.forEach (function(details)){ %>
-            <form action="/editE/<%=details._id %>" method="POST">
-                <input type="text" value="<%=details.nome %>" name="nome">
-                <input type="text" value="<%=details.marca %>" name="marca">
-                <input type="number" value="<%=details.valor %>" name="valor">
+            <form action="/editE/<%= details._id %>" method="POST">
+                <input type="text" value="<%= details.nome %>" name="nome">
+                <input type="text" value="<%= details.marca %>" name="marca">
+                <input type="number" value="<%= details.valor %>" name="valor">
                 <div class="form-group">
                     <label for="exampleFormControlInput1"><h5>Cor:</h5></label>
                     
@@ -61,9 +61,9 @@
                                     <% } %>
                     </select>                                
                 </div>
-                <input type="text" value="<%=details.descricao %>" name="descricao">
-                <input type="text" value="<%=details.garantia %>" name="garantia">
-                <input type="text" value="<%=details.modelo %>" name="modelo">
+                <input type="text" value="<%= details.descricao %>" name="descricao">
+                <input type="text" value="<%= details.garantia %>" name="garantia">
+                <input type="text" value="<%= details.modelo %>" name="modelo">
                 <button><a href="/showE/">Voltar</a></button>
                 <button type="submit">Salvar Edições</button>
             </form>
