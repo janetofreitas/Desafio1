@@ -312,15 +312,15 @@ app.post('/showE/', function(req, res){
 })
 
 app.route('/editE/:id')
-.get((req, res) =>{
-    var id = req.params.id
-    db.collection('eletronicos').find(ObjectId(id)).toArray(
-        (err, result)=>{
-            if(err) return console.log(err)
-
-            res.render('editE', {data: result})
-        })
-})
+  .get((req, res)=> {
+      var id = req.params.id
+      db.collection('eletronicos').find(ObjectID(id)).toArray(
+          (err, result)=> {
+              if (err) return console.log(err)
+              res.render('editE' , {data: result})
+  
+          })    
+  })
 .post((req, res) => {
     var id = req.params.id
     var nome = req.body.nome
@@ -356,20 +356,18 @@ app.route('/editE/:id')
     )
 })
 
-app.route('/delete/:id')
-.get((req, res)=> {
-    var id= req.params.id
+app.route('/deleteE/:id')
+.get((req, res) =>{
+    var id = req.params.id
     db.collection('eletronicos').deleteOne(
         {
             _id: ObjectID(id)
-        }, (err, result)=>{
-            if(err) return console.log(err)
-
-            console.log('Valor removido com sucesso!')
-            res.redirect('/showE')
-        }
-        
-    )
+        },
+             (err, result) =>{
+                if (err) return console.log(err)
+                console.log('Valor removido com sucesso!')
+                res.redirect('/showE')
+             })
 })
 
 

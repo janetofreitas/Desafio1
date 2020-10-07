@@ -15,13 +15,18 @@
     </head>
     <body>
         <h2 class="text-center text-warning">Cadastrar Produtos Eletrônicos</h2>
-        <button class="btn btn-dark"><a href="/showF/">Listagem</a></button>
+        
         <br>
         <br>
         <form action="/showE" method="POST">
-            <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="marca" placeholder="Marca">
-            <input type="number" name="valor" placeholder="Valor">
+            <label for="exampleFormControlInput1"><h5>Nome:</h5></label>
+            <input type="text" name="nome">
+
+            <label for="exampleFormControlInput1"><h5>Marca:</h5></label>
+            <input type="text" name="marca">
+
+            <label for="exampleFormControlInput1"><h5>Valor (R$):</h5></label>
+            <input type="number" name="valor" >
             <div class="form-group">
                 <label for="exampleFormControlInput1"><h5>Cor:</h5></label>
                 
@@ -41,10 +46,17 @@
                     </select> 
                     
               </div>
-            <input type="text" name="descricao" placeholder="Descrição">
-            <input type="text" name="garantia" placeholder="Garantia">
-            <input type="text" name="modelo" placeholder="Modelo">
+            <label for="exampleFormControlInput1"><h5>Descrição:</h5></label>
+            <input type="text" name="descricao">
+
+            <label for="exampleFormControlInput1"><h5>Garantia:</h5></label>
+            <input type="text" name="garantia">
+
+            <label for="exampleFormControlInput1"><h5>Modelo:</h5></label>
+            <input type="text" name="modelo">
+
             <button type="submit" class="btn btn-primary btn-lg btn-block .btn btn-warning">Cadastrar Produto</button>
+            <button class="btn btn-primary btn-lg btn-block .btn btn-warning"><a href="/showE/">Listagem</a></button>
         </form>
     </body>
 </html>
